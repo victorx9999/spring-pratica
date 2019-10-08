@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Cadastro de Aluno</title>
+</head>
+<body>
+	<form action="#" th:action="@{cadastreAluno}" th:object="${aluno}" method="post">
+	
+	
+		Nome: <input type="text" th:field="*{nome}" /><br />
+		Matrícula: <input type="text" th:field="*{matricula}" /><br /> 
+		Curso: 	<select id="curso" name="curso">
+				<option th:each="i : ${cursoOptions}"
+						th:text="${i.key}"
+						th:value="${i.value}"
+						th:selected="(${i.key}==*{curso})">
+				</option>	
+		</select> <br/>
+		
+	 <input type="submit" value="Salvar"> 
+	</form>
+</body>
+
+</html>
